@@ -7,9 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-digital-blue': '#FAED26',
-        'digital-blue-50': 'rgba(255, 251, 0, 0.5)',
+        
+        'digital-blue': '#0066FF',
+        'digital-blue-50': 'rgba(38, 0, 255, 0.5)',
       }
+      
     },
   },
   plugins: [],

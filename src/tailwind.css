@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.logo {
+		width: 69px;
+		height: 68.48px;
+		position: sticky; 
+		top: 30px;
+		left: 21px;
+	}
+
+	/* Ocultamos barra de desplazamiento */
+	.hide-scrollbar {
+		-ms-overflow-style: none; 
+		scrollbar-width: none; 
+	}
+	.hide-scrollbar::-webkit-scrollbar {
+		display: none; 
+	}
+
+  .brand {
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-size: 40px;
+    font-weight: 700;
+  }
+}

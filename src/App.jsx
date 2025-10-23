@@ -1,9 +1,6 @@
-
-import Products from './components/products.jsx'
-import './index.css'
-
+import Layout from "./components/Layout";
 function App() {
-  return <Products />
+  return <Layout />;
 }
 
-export default App
+export default App;

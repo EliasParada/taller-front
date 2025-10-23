@@ -1,15 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --bg-digital-blue: #3b26fa;
-  --digital-blue-50: rgba(255, 251, 0, 0.5);
-}
-
-.bg-digital-blue {
-  background-color: var(--bg-digital-blue);
-}
-.digital-blue-50 {
-  background-color: var (var(--digital-blue-50));
-}
