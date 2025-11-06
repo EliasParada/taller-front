@@ -23,7 +23,8 @@
 	}
 
   .brand {
-    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: 'Montserrat', system-ui, -apple-system, 
+	'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     font-size: 40px;
     font-weight: 700;
   }

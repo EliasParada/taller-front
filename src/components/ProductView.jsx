@@ -18,7 +18,7 @@ const ProductView = ({ product, onBack }) => {
     );
   }
 
-  const productName = product.Nombre || product.name;
+  const productName = product.Nombre || product.name; 
   const productPrice = product.Precio || product.price || 0;
   const productDescription = product.Descripcion || product.description;
   const productRating = product.Valoracion || product.rating;
@@ -38,7 +38,8 @@ const ProductView = ({ product, onBack }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
             {/* Imagenes*/}
             <div className="space-y-4">
-              <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center p-8 border border-gray-200">
+              <div className="aspect-square bg-gradient-to-br from-gray-50 
+              to-gray-100 rounded-lg flex items-center justify-center p-8 border border-gray-200">
                 {productImage ? (
                   <img
                     src={productImage}
@@ -57,7 +58,7 @@ const ProductView = ({ product, onBack }) => {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                  {productName}
+                 {productName}
                 </h1>
               </div>
               {/* Valoración de estrellas */}
@@ -111,7 +112,9 @@ const ProductView = ({ product, onBack }) => {
                 <h3 className="font-semibold text-gray-900 mb-3">
                   Stock
                 </h3>
-                <p className={`font-semibold ${productStock > 0 ? " text-2xl text-green-600" : "text-red-600"}`}>
+                <p className={`font-semibold ${productStock > 0 ? " text-2xl text-green-600" 
+                :
+                   "text-red-600"}`}>
                   {productStock > 0 ? productStock : "Agotado"}
                 </p>
               </div>

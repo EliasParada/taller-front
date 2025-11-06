@@ -1,12 +1,19 @@
 import { ShoppingCart, User } from "lucide-react";
 import reactLogo from "../assets/logo.png";
-import Products from "./products";
 import "../tailwind.css";
-import { useState } from "react";
+import React, { useState, Children, isValidElement, cloneElement } from "react";
 
-const Layout = ({}) => {
+const Layout = ({ children }) => {
   const [homeSignal, setHomeSignal] = useState(0);
   const goHome = () => setHomeSignal((s) => s + 1);
+
+  
+  const childrenWithProps = Children.map(children, (child) => {
+    if (isValidElement(child)) {
+      return cloneElement(child, { homeSignal });
+    }
+    return child;
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -51,13 +58,36 @@ const Layout = ({}) => {
               <span className="text-xs mt-1">$0.00</span>
             </button>
             <button>
-              <User className="w-6 h-6" />
+              <User className="w-6 h-6" /> 
             </button>
           </div>
         </div>
       </header>
-      <Products homeSignal={homeSignal} />
-    </div>  
+      
+      {childrenWithProps && childrenWithProps.length > 0 ? (
+        childrenWithProps
+      ) : (
+        <div className="max-w-md mx-auto py-16 text-center">
+          <p className="mb-6 text-gray-700">
+            Accede a tu cuenta o regístrate para continuar
+          </p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="/login"
+              className="px-4 py-2 bg-digital-blue text-white rounded-lg hover:opacity-90"
+            >
+              Iniciar sesión
+            </a>
+            <a
+              href="/register"
+              className="px-4 py-2 border border-digital-blue text-digital-blue rounded-lg hover:bg-digital-blue hover:text-white transition"
+            >
+              Registrarse
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
