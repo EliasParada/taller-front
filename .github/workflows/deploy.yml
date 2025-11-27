@@ -33,8 +33,8 @@ jobs:
           TAG=$(echo $GITHUB_SHA | head -c7)
           docker build -f Dockerfile -t $REG/$IMG:$TAG .
           docker push $REG/$IMG:$TAG
-          docker tag $REG/$IMG:$TAG $REG/$IMG:latest
-          docker push $REG/$IMG:latest
+          docker tag $REG/$IMG:$TAG $REG/$IMG:latest-front
+          docker push $REG/$IMG:latest-front
 
       - name: Deploy via SSH to droplet
         uses: appleboy/ssh-action@v0.1.7
@@ -49,7 +49,7 @@ jobs:
             export TAG=$TAG
 
             echo "${{ secrets.DO_API_TOKEN }}" | docker login -u docker --password-stdin registry.digitalocean.com
-            docker pull ${{ secrets.REGISTRY_NAME }}/${{ secrets.IMAGE_NAME }}:latest
+            docker pull ${{ secrets.REGISTRY_NAME }}/${{ secrets.IMAGE_NAME }}:latest-front
             docker compose pull
             docker compose up -d --remove-orphans
             docker image prune -af
